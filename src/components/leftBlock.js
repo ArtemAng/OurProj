@@ -1,9 +1,10 @@
 import React from 'react';
+import LeftBlockItem from "./leftBlockItem";
 
-const LeftBlock = ({title}) => {
+const LeftBlock = ({ leftTable }) => {
     return (
         <div className="LeftBlock">
-            {title}
+            {leftTable.map((item, id) => <LeftBlockItem leftTableTitle={item} key={id}/>)}
         </div>
     );
 };

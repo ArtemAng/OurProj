@@ -5,7 +5,7 @@ import MenuItem from './menuItem';
 const Menu = ({ MenuList, click }) => {
     return (
         <div className="Menu" >
-            {MenuList.map((item, id) => <MenuItem title={item.title} Icon={item.Icon} click={() => click(id)} />)}
+            {MenuList.map((item, id) => <MenuItem title={item.title} Icon={item.Icon} click={() => click(id)} key={id} />)}
         </div>
     );
 };

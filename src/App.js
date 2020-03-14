@@ -25,30 +25,48 @@ import Icon16 from './images/bi.png';
 class App extends React.Component {
   state = {
     MenuList: [
-      { title: "Рабочий стол", Icon: Icon0 },
-      { title: "Справочник", Icon: Icon1 },
-      { title: "Закупки", Icon: Icon2 },
-      { title: "Склад", Icon: Icon3 },
-      { title: "Продажи", Icon: Icon4 },
-      { title: "Розничная торговля", Icon: Icon5 },
-      { title: "Финансы", Icon: Icon6 },
-      { title: "Цены", Icon: Icon7 },
-      { title: "Оборудование", Icon: Icon8 },
-      { title: "Транспорт", Icon: Icon9 },
-      { title: "ВЭД", Icon: Icon10 },
-      { title: "Производство", Icon: Icon11 },
-      { title: "WMS", Icon: Icon12 },
-      { title: "Чат", Icon: Icon13 },
-      { title: "Учетная запись", Icon: Icon14 },
-      { title: "Поиск", Icon: Icon15 },
-      { title: "BI", Icon: Icon16 }
+      {
+        title: "Рабочий стол", Icon: Icon0, leftTable: ["Продажа", "Выписка накладных",
+          "Обработка внутренних заказов", "Розничная торговля", "Кассовые операции",
+          "POS", "Печать ценников ТСД", "Обработка Z-отчетов", "Переоценка", "Подарочные сертификаты",
+          "Закупка", "Заказы по потребностям", "Графики заказов", "Заказы по графику", "Приемка по заказам",
+          "Обновление розничных цен", "Цены", "Управление ценами", "Текущие цены", "Розничные цены",
+          "Задолженности", "Управление задолженностями", "Разнесение документов", "Неоплаченные документы",
+          "Маркетинг", "Договоры маркетинга", "Акты на оплату", "Группы складов", "Шаблоны", "Производство",
+          "Перемещение на цех производства", "Реест перемещений в цех производства", "WMS", "Перемещение по заказам"
+        ]
+      },
+      {
+        title: "Справочники", Icon: Icon1, leftTable: ["Сотрудники", "Организации", "Товар", "Товары", "Товарные группы",
+          "Единицы измерения", "Типы дополнительных групп", "Дополнительные группы", "Настройка атрибутов", "Атрибуты товаров",
+          "Списки SKU", "Бренды", "Региональные параметры", "Языки", "Перевод", "Словари", "Страны", "Выходные дни",
+          "Шаблоны", "Шаблоны Exel", "Шаблоны Word", "Валюты и курсы", "Валюты", "Курсы валют", "Нумераторы", "Тип подакции", "Тип промо"
+        ]
+      },
+      { title: "Закупки", Icon: Icon2, leftTable: ["Закупки", "Заказы","Параметры автозаказа", "Накладные", "Акты расхождений",
+       "Возвраты", "Заказы", "Накладные", "Акты расхождений", "Справочники", "Операции", "Отчеты", "Регистр поступлений", "Исполнение заявок", 
+       "Отчет по поступлениям", "Поступления по неделям"] },
+      { title: "Склад", Icon: Icon3, leftTable: ["Поступления", "Поставки", "Затраты", "", "", ""] },
+      { title: "Продажи", Icon: Icon4, leftTable: ["frfwff"] },
+      { title: "Розничная торговля", Icon: Icon5, leftTable: ["fergergef"] },
+      { title: "Финансы", Icon: Icon6, leftTable: ["fdbdbrbdtgef"] },
+      { title: "Цены", Icon: Icon7, leftTable: ["asdsdad"] },
+      { title: "Оборудование", Icon: Icon8, leftTable: ["asadasadd"] },
+      { title: "Транспорт", Icon: Icon9, leftTable: ["asdsadadd"] },
+      { title: "ВЭД", Icon: Icon10, leftTable: ["sdwddas"] },
+      { title: "Производство", Icon: Icon11, leftTable: ["sdadaasdsd"] },
+      { title: "WMS", Icon: Icon12, leftTable: ["afads"] },
+      { title: "Чат", Icon: Icon13, leftTable: ["sdasdasad"] },
+      { title: "Учетная запись", Icon: Icon14, leftTable: ["frfwff"] },
+      { title: "Поиск", Icon: Icon15, leftTable: ["frfwff"] },
+      { title: "BI", Icon: Icon16, leftTable: ["frfwff"] }
     ],
-    isClicked: ""
+    isClicked: []
   }
   click = (id) => {
     this.setState((prevState) => {
       const newState = { ...prevState }
-      newState.isClicked = newState.MenuList[id].title;
+      newState.isClicked = newState.MenuList[id].leftTable;
       return newState;
     })
   }
@@ -57,7 +75,7 @@ class App extends React.Component {
       <div className="App">
         <Menu MenuList={this.state.MenuList} click={this.click} />
         <div className="Container">
-          <LeftBlock title={this.state.isClicked} />
+          <LeftBlock leftTable={this.state.isClicked} />
           <Main />
         </div>
       </div>
