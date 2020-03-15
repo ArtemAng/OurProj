@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+//import InLeftBlock from './components/inLeftBlock';
 import LeftBlock from './components/leftBlock';
 import Main from './components/main';
 import Menu from './components/menu';
@@ -21,7 +22,6 @@ import Icon14 from './images/lock.png';
 import Icon15 from './images/search.png';
 import Icon16 from './images/bi.png';
 
-
 class App extends React.Component {
   state = {
     MenuList: [
@@ -41,7 +41,7 @@ class App extends React.Component {
           "Единицы измерения", "Типы дополнительных групп", "Дополнительные группы", "Настройка атрибутов", "Атрибуты товаров",
           "Списки SKU", "Бренды", "Региональные параметры", "Языки", "Перевод", "Словари", "Страны", "Выходные дни",
           "Шаблоны", "Шаблоны Exel", "Шаблоны Word", "Валюты и курсы", "Валюты", "Курсы валют", "Нумераторы", "Тип подакции", "Тип промо"
-        ]
+        ], 
       },
       { title: "Закупки", Icon: Icon2, leftTable: ["Закупки", "Заказы","Параметры автозаказа", "Накладные", "Акты расхождений",
        "Возвраты", "Заказы", "Накладные", "Акты расхождений", "Справочники", "Операции", "Отчеты", "Регистр поступлений", "Исполнение заявок", 

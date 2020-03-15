@@ -4,9 +4,9 @@
     background-color: rgb(110, 110, 110);
 }
 
-
 .Container {
     display: flex;
+    height: 90%;
 }
 
 .LeftBlock {

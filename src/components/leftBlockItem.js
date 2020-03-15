@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from "../images/open.png"
 
-const LeftBlockItem = ({leftTableTitle}) => {
+const LeftBlockItem = ({ leftTableTitle }) => {
     return (
         <div className="LeftBlockItem">
             <img className="ImgLeftItem" src={Icon} alt="icon" />
