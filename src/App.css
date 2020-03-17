@@ -7,6 +7,7 @@
 .Container {
     display: flex;
     height: 90%;
+<<<<<<< HEAD
 }
 
 /* .text_theme{
@@ -40,6 +41,8 @@
 }
 .ToolsPanelItem:hover{
     background-color: blue;
+=======
+>>>>>>> 242fb76683f29fcd1ba4a4dc9cf3871db55b5757
 }
 
 .LeftBlock {
