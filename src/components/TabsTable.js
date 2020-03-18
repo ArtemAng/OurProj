@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import SwipeableViews from 'react-swipeable-views';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -15,8 +16,8 @@ function TabPanel(props) {
             component="div"
             role="tabpanel"
             hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
+            id={`full-width-tabpanel-${index}`}
+            aria-labelledby={`full-width-tab-${index}`}
             {...other}
         >
             {value === index && <Box p={3}>{children}</Box>}
@@ -32,44 +33,62 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
     return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
+        id: `full-width-tab-${index}`,
+        'aria-controls': `full-width-tabpanel-${index}`,
     };
 }
 
 const useStyles = makeStyles(theme => ({
     root: {
-        flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
+        width: '100%',
     },
 }));
 
-export default function SimpleTabs({ children, children2, children3 }) {
+export default function FullWidthTabs({ children, children2, children3 }) {
     const classes = useStyles();
+    const theme = useTheme();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
+    const handleChangeIndex = index => {
+        setValue(index);
+    };
+
     return (
         <div className={classes.root}>
-            <AppBar position="static">
-                <Tabs value={value} onChange={handleChange} >
-                    <Tab label="Item One" {...a11yProps(0)} />
-                    <Tab label="Item Two" {...a11yProps(1)} />
-                    <Tab label="Item Three" {...a11yProps(2)} />
+            <AppBar position="static" color="default">
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    variant="fullWidth"
+                    aria-label="full width tabs example"
+                >
+                    <Tab label="Накладная" {...a11yProps(0)} />
+                    <Tab label="Детализация" {...a11yProps(1)} />
+                    <Tab label="Печать" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0}>
-                {children}
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                {children2}
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                {children3}
-            </TabPanel>
+            <SwipeableViews
+                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                index={value}
+                onChangeIndex={handleChangeIndex}
+            >
+                <TabPanel value={value} index={0} dir={theme.direction}>
+                    {children}
+                </TabPanel>
+                <TabPanel value={value} index={1} dir={theme.direction}>
+                    {children2}
+                </TabPanel>
+                <TabPanel value={value} index={2} dir={theme.direction}>
+                    {children3}
+                </TabPanel>
+            </SwipeableViews>
         </div>
     );
 }

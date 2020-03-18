@@ -7,7 +7,6 @@
 .Container {
     display: flex;
     height: 90%;
-<<<<<<< HEAD
 }
 
 /* .text_theme{
@@ -17,16 +16,16 @@
     padding-left:20px;
     padding-right:20px;
     width: 200px;
+    
+}
 
-  }
-  
-  .box_theme{
+.box_theme{
     border-left: 1px solid #333333;
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     width: 200px;
-
-  } */
+    
+} */
 
 .ToolsPanelItem{
     display: inline-block;
@@ -41,14 +40,13 @@
 }
 .ToolsPanelItem:hover{
     background-color: blue;
-=======
->>>>>>> 242fb76683f29fcd1ba4a4dc9cf3871db55b5757
 }
 
 .LeftBlock {
     width: 30%;
     margin: 5px;
     background-color:#ffff;
+    overflow-y: scroll;
 }
 
 .Menu {
@@ -58,11 +56,11 @@
 }
 
 .Legend {
-   font-size: small;
+    font-size: small;
     display: flex;
     align-self: flex-start;
-   padding: 3 px 6px;
-   
+    padding: 3 px 6px;
+    
 }
 
 .InfoDate {
@@ -112,7 +110,7 @@
 }
 .topMain{
     display: block;
-    overflow-y: scroll;
+    overflow-x: scroll;
     width: 100%;
     height: 50%;
 }
